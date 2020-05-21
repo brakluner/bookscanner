@@ -63,6 +63,9 @@ function Books() {
           <Col size="md-6">
             <Jumbotron>
               <h1>What Books Should I Read?</h1>
+              <Link to="/search">
+                <h1>this way...</h1>              
+              </Link>
             </Jumbotron>
             <form>
               <Input
