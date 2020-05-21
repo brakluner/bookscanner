@@ -1,9 +1,15 @@
 import axios from "axios";
 
+const BASEURL = "https://randomuser.me/api/";
+const APIkey = 'key=AIzaSyBe26Em_nteYXsmCcxVF2TwX1GREU4Oeu4';
+
+
+
+
 export default {
   //googlebooks
-  getGoogleBooks: () => {
-    return axios.get("/api/search");
+  getGoogleBooks: (query) => {
+    return axios.get(BASEURL, APIkey);
   },
   // Gets all books
   getBooks: function() {
