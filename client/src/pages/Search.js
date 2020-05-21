@@ -9,9 +9,9 @@ function Detail(props) {
 
   // When this component mounts, grab the book with the _id of props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
-  const {id} = useParams()
+  const {query} = useParams()
   useEffect(() => {
-    API.getBook(id)
+    API.getGoogleBooks(query)
       .then(res => setBook(res.data))
       .catch(err => console.log(err));
   }, [])
@@ -21,6 +21,24 @@ function Detail(props) {
         <Row>
           <Col size="md-12">
             <Jumbotron>
+            <form>
+      <div className="form-group">
+        <label htmlFor="search">Search:</label>
+        <input
+          onChange={props.handleInputChange}
+          value={props.value}
+          name="search"
+          type="text"
+          className="form-control"
+          placeholder="Search For a Book"
+          id="search"
+        />
+        <br />
+        <button onClick={props.handleFormSubmit} className="btn btn-primary">
+          Search
+        </button>
+      </div>
+    </form>
               <h1>
                 {book.title} by {book.author}
               </h1>
