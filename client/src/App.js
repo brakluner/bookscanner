@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Books from "./pages/Books";
 import Detail from "./pages/Details";
 import NoMatch from "./pages/NoMatch";
-import Search from "./pages/Search";
+import SearchMain from "./pages/SearchMain";
 import Nav from "./components/Nav";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
             <Detail />
           </Route>
           <Route exact path="/search">
-            <Search />
+            <SearchMain />
           </Route>
           <Route>
             <NoMatch />

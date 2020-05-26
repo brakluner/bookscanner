@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BASEURL = "https://randomuser.me/api/";
-const APIkey = 'key=AIzaSyBe26Em_nteYXsmCcxVF2TwX1GREU4Oeu4';
+const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=";
+const APIkey = '&key=AIzaSyBe26Em_nteYXsmCcxVF2TwX1GREU4Oeu4';
 
 
 
@@ -9,7 +9,8 @@ const APIkey = 'key=AIzaSyBe26Em_nteYXsmCcxVF2TwX1GREU4Oeu4';
 export default {
   //googlebooks
   getGoogleBooks: (query) => {
-    return axios.get(BASEURL, APIkey);
+    console.log(BASEURL + query + APIkey)
+    return axios.get(BASEURL + query + APIkey);
   },
   // Gets all books
   getBooks: function() {
