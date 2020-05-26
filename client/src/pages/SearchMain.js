@@ -12,14 +12,15 @@ class SearchMain extends Component {
 
   // When this component mounts, search for the movie "The Matrix"
   componentDidMount() {
-    this.searchGoogleBooks("The Matrix");
+    this.searchGoogleBooks();
   }
 
   searchGoogleBooks = query => {
     API.getGoogleBooks(query)
-      .then(res => this.setState({ result: res.data }))
+      .then(res => this.setState({ result: res.data.items[0].volumeInfo }))
       .catch(err => console.log(err));
       console.log(query)
+      console.log(this.state.result)
   };
 
   handleInputChange = event => {
@@ -42,7 +43,7 @@ class SearchMain extends Component {
             <Card
               heading={this.state.result.title || "Search for a Book to Begin"}
             >
-              {this.state.result.Title ? (
+              {this.state.result.title ? (
                 <BookDetail
                   title={this.state.result.title}
                   author={this.state.result.author}
