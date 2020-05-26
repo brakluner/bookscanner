@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Image from "../components/Image/Image"
 import Card from "./Card";
 import Search from "./Search";
 import BookDetail from "./BookDetail";
