@@ -64,7 +64,7 @@ function Books() {
             <Jumbotron>
               <h1>What Books Should I Read?</h1>
               <Link to="/search">
-                <h1>this way...</h1>              
+                <h1 className="Lonk">this way...Click here to start your reading adventure!</h1>              
               </Link>
             </Jumbotron>
             <form>

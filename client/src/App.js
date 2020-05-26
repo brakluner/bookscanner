@@ -5,6 +5,7 @@ import Detail from "./pages/Details";
 import NoMatch from "./pages/NoMatch";
 import SearchMain from "./pages/SearchMain";
 import Nav from "./components/Nav";
+import "./App.css";
 
 function App() {
   return (
