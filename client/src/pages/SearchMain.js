@@ -8,6 +8,7 @@ import API from "../utils/API";
 class SearchMain extends Component {
   state = {
     result: {},
+    result2:{},
     search: ""
   };
 
@@ -18,7 +19,8 @@ class SearchMain extends Component {
 
   searchGoogleBooks = query => {
     API.getGoogleBooks(query)
-      .then(res => this.setState({ result: res.data.items[0].volumeInfo }))
+      .then(res => this.setState({ result: res.data.items[0].volumeInfo, 
+                                   result2: res.data.items[0].volumeInfo.imageLinks}))
       .catch(err => console.log(err));
       console.log(query)
       console.log(this.state.result)
@@ -44,7 +46,9 @@ class SearchMain extends Component {
             <Card
               heading={this.state.result.title || "Search for a Book to Begin"}
             >
-              <Image />
+              
+              <img alt={this.state.result.title} src={this.state.result2.thumbnail}/>  
+              
               {this.state.result.title ? (
                 <BookDetail
                   title={this.state.result.title}

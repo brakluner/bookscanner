@@ -1,30 +1,13 @@
-import React, { Component } from "react";
-import API from "../../utils/API";
+import React from "react";
 
-class Image extends Component {
-  state = {
-    result: {},
-    search: ""
-  };
+function Image(props) {
 
-  // When this component mounts, search for the movie "The Matrix"
-  componentDidMount() {
-    this.searchGoogleBooks();
-  }
-
-  searchGoogleBooks = query => {
-    API.getGoogleBooks(query)
-      .then(res => this.setState({ result: res.data.items[0].volumeInfo.imageLinks }))
-      .catch(err => console.log(err));
-      console.log(query)
-      console.log(this.state.result)
-  };
-
-  render() {
     return (
-        <img alt={this.state.result.title} className="img-fluid" src={this.state.result.thumbnail} style={{ margin: "0 auto" }} /> 
+        <img src={props.imageLinks} alt={props.title} className="img-fluid" style={{ margin: "0 auto" }}>
+             
+        </img> 
     );
   }
-}
+
 
 export default Image;
