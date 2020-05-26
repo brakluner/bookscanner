@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Image from "../components/Image/Image"
 import Card from "./Card";
 import Search from "./Search";
 import BookDetail from "./BookDetail";
@@ -43,14 +44,15 @@ class SearchMain extends Component {
             <Card
               heading={this.state.result.title || "Search for a Book to Begin"}
             >
+              <Image />
               {this.state.result.title ? (
                 <BookDetail
                   title={this.state.result.title}
-                  author={this.state.result.author}
+                  author={this.state.result.authors[0]}
                   description={this.state.result.descrition}
-                  image={this.state.result.image}
                   link={this.state.result.link}
-                />
+                ></BookDetail>
+                
               ) : (
                 <h3>No Results to Display</h3>
               )}
