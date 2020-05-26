@@ -6,6 +6,7 @@ function BookDetail(props) {
       <h3>Author(s): {props.author}</h3>
       <h3>Title: {props.title}</h3>
       <h3>Description: {props.textSnippet}</h3>
+      <h3>Link: <a href={props.webReaderLink}>{props.title} Google Page</a></h3>
     </div>
   );
 }

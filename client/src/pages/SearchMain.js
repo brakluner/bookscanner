@@ -10,22 +10,24 @@ class SearchMain extends Component {
     result: {},
     result2:{},
     result3:{},
+    result4:{},
     search: ""
   };
 
   // When this component mounts, search for the movie "The Matrix"
   componentDidMount() {
-    this.searchGoogleBooks();
+    this.searchGoogleBooks("1984");
   }
 
   searchGoogleBooks = query => {
     API.getGoogleBooks(query)
       .then(res => this.setState({ result: res.data.items[0].volumeInfo, 
                                    result2: res.data.items[0].volumeInfo.imageLinks,
-                                   result3: res.data.items[0].searchInfo }))
+                                   result3: res.data.items[0].searchInfo,
+                                   result4: res.data.items[0].accessInfo }))
       .catch(err => console.log(err));
       console.log(query)
-      console.log(this.state.result3)
+      console.log(this.state.result4)
   };
 
   handleInputChange = event => {
@@ -56,7 +58,7 @@ class SearchMain extends Component {
                   title={this.state.result.title}
                   author={this.state.result.authors[0]}
                   textSnippet={this.state.result3.textSnippet}
-                  link={this.state.result.link}
+                  webReaderLink={this.state.result4.webReaderLink}
                 ></BookDetail>
                 
               ) : (
