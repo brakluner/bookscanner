@@ -9,6 +9,7 @@ class SearchMain extends Component {
   state = {
     result: {},
     result2:{},
+    result3:{},
     search: ""
   };
 
@@ -20,10 +21,11 @@ class SearchMain extends Component {
   searchGoogleBooks = query => {
     API.getGoogleBooks(query)
       .then(res => this.setState({ result: res.data.items[0].volumeInfo, 
-                                   result2: res.data.items[0].volumeInfo.imageLinks}))
+                                   result2: res.data.items[0].volumeInfo.imageLinks,
+                                   result3: res.data.items[0].searchInfo }))
       .catch(err => console.log(err));
       console.log(query)
-      console.log(this.state.result)
+      console.log(this.state.result3)
   };
 
   handleInputChange = event => {
@@ -53,7 +55,7 @@ class SearchMain extends Component {
                 <BookDetail
                   title={this.state.result.title}
                   author={this.state.result.authors[0]}
-                  description={this.state.result.descrition}
+                  textSnippet={this.state.result3.textSnippet}
                   link={this.state.result.link}
                 ></BookDetail>
                 
